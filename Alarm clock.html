@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        #watch {
+            text-align: center;
+            background: black;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 60px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="watch">
+        <div id="time">
+            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+    </div>
+
+    <script>
+        const clock = document.querySelector('.clock');
+        const alarmTime = document.querySelector('#alarmTime');
+        const setAlarm = document.querySelector('#setAlarm');
+
+        // Update the clock every second
+        setInterval(() => {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            clock.innerHTML = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+
+        // Set the alarm
+        setAlarm.addEventListener('click', () => {
+                    const alarm = new Date(alarmTime.value);
+
+                    // Check if the alarm is in the past
+                    if (alarm < new Date()) {
+                        alert('Alarm time must be in the future.');
+    </script>
+
+</body>
+
+</html>
